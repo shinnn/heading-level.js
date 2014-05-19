@@ -1,6 +1,6 @@
 {
   "name": "heading-level",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Extract heading level (1 - 6) from a tag name",
   "main": "dist/heading-level-node.js",
   "scripts": {
