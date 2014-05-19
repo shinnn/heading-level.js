@@ -1,0 +1,41 @@
+{
+  "name": "heading-level",
+  "version": "0.1.0",
+  "description": "Extract heading level (1 - 6) from a tag name",
+  "keywords": [
+    "h1",
+    "h2",
+    "h3",
+    "h4",
+    "h5",
+    "h6",
+    "head",
+    "heading",
+    "level",
+    "tag"
+  ],
+  "main": "dist/heading-level.js",
+  "homepage": "https://github.com/shinnn/heading-level.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/shinnn/heading-level.js.git"
+  },
+  "authors": [
+    {
+      "name": "Shinnosuke Watanabe",
+      "email": "snnskwtnb@gmail.com",
+      "url": "https://github.com/shinnn"
+    }
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "src",
+    "test",
+    "tmp",
+    "gulpfile.js",
+    "package.json",
+    "component.json"
+  ]
+}

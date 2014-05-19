@@ -1,0 +1,11 @@
+{
+  "camelcase": true,
+  "eqeqeq": true,
+  "strict": true,
+  "indent": 2,
+  "quotmark": "single",
+  "browser": true,
+  "node": true,
+  "esnext": true,
+  "mocha": true
+}
