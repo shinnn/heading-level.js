@@ -5,8 +5,6 @@
 [![Build Status](https://travis-ci.org/shinnn/heading-level.js.svg?branch=master)](https://travis-ci.org/shinnn/heading-level.js)
 [![devDependency Status](https://david-dm.org/shinnn/heading-level.js/dev-status.svg)](https://david-dm.org/shinnn/heading-level.js#info=devDependencies)
 
-[![browser support](https://ci.testling.com/shinnn/heading-level.js.png)](https://ci.testling.com/shinnn/heading-level.js)
-
 Extract a valid heading level (1 - 6) from a tag name
 
 ```javascript
