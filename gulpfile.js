@@ -49,7 +49,6 @@ gulp.task('transpile', ['clean'], function() {
     gulp.src(['src/*.js'])
       .pipe($.es6Transpiler())
       .pipe($.footer(nodeExports, {funName: funName}))
-      .pipe($.header(banner, {pkg: pkg}))
       .pipe($.rename(pkg.main))
       .pipe(gulp.dest('')),
     gulp.src(['test.js'])

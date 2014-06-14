@@ -1,7 +1,3 @@
-/*!
- * heading-level.js | MIT (c) Shinnosuke Watanabe
- * https://github.com/shinnn/heading-level.js
-*/
 'use strict';
 
 function headingLevel(tagName) {
