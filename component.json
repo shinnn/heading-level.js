@@ -1,6 +1,6 @@
 {
   "name": "heading-level.js",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Extract heading level (1 - 6) from a tag name",
   "keywords": [
     "h1",
