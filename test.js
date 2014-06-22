@@ -1,7 +1,8 @@
 'use strict';
 
-var headingLevel = require(process.cwd() + '/dist/heading-level-node.js');
 var assert = require('assert');
+
+var headingLevel = require('require-main')();
 
 describe('headingLevel()', () => {
   it('should extract heading level from tag name.', () => {

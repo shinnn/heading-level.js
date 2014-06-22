@@ -53,6 +53,7 @@
     "gulp-wrap-umd": "^0.2.0",
     "jshint-stylish": "^0.2.0",
     "merge-stream": "^0.1.1",
+    "require-main": "^0.1.0",
     "to-camel-case": "^0.2.1"
   }
 }
