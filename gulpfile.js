@@ -4,6 +4,7 @@ var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var mergeStream = require('merge-stream');
 
+var del = require('del');
 var stylish = require('jshint-stylish');
 var toCamelCase = require('to-camel-case');
 
@@ -30,10 +31,7 @@ gulp.task('lint', function() {
     .pipe($.jsonlint.reporter());
 });
 
-gulp.task('clean', function() {
-  gulp.src(['{tmp,dist}/*'], {read: false})
-    .pipe($.rimraf());
-});
+gulp.task('clean', del.bind(null, ['{tmp,dist}/*']));
 
 gulp.task('transpile', ['clean'], function() {
   return mergeStream(
