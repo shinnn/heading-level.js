@@ -22,6 +22,6 @@ describe('headingLevel()', () => {
     assert.strictEqual(headingLevel('div'), null);
   });
   it('should throw an error if it takes a non-string value.', () => {
-    assert.throws(() => headingLevel(1));
+    assert.throws(headingLevel.bind(null, 1), TypeError);
   });
 });
