@@ -1,6 +1,6 @@
 {
   "name": "heading-level.js",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Extract heading level (1 - 6) from a tag name",
   "keywords": [
     "h1",
@@ -15,9 +15,9 @@
     "tag"
   ],
   "repo": "shinnn/heading-level.js",
-  "main": "dist/heading-level.js",
+  "main": "dist/heading-level-cjs.js",
   "scripts": [
-    "dist/heading-level.js"
+    "dist/heading-level-cjs.js"
   ],
   "license": "MIT"
 }

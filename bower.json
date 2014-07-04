@@ -1,6 +1,6 @@
 {
   "name": "heading-level",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Extract heading level (1 - 6) from a tag name",
   "keywords": [
     "h1",
@@ -33,7 +33,7 @@
     "node_modules",
     "src",
     "tmp",
-    "dist/heading-level-node.js",
+    "dist/heading-level-cjs.js",
     "test.js",
     "gulpfile.js",
     "package.json",

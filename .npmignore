@@ -2,8 +2,9 @@
 .jshintrc
 .travis.yml
 gulpfile.js
+test.js
+dist/heading-level.js
 src/
-test/
 tmp/
 bower.json
 component.json
