@@ -4,7 +4,7 @@ var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var mergeStream = require('merge-stream');
 
-var del = require('del');
+var rimraf = require('rimraf');
 var stylish = require('jshint-stylish');
 var toCamelCase = require('to-camel-case');
 
@@ -20,8 +20,6 @@ var banner = [
   '*/\n'
 ].join('\n');
 
-var nodeExports = '\nmodule.exports = <%= funName %>;\n';
-
 gulp.task('lint', function() {
   gulp.src(['{,src/}*.js'])
     .pipe($.jshint())
@@ -31,12 +29,13 @@ gulp.task('lint', function() {
     .pipe($.jsonlint.reporter());
 });
 
-gulp.task('clean', del.bind(null, ['{tmp,dist}/*']));
+gulp.task('clean:dist', rimraf.bind(null, 'dist'));
 
-gulp.task('transpile', ['clean'], function() {
+gulp.task('clean:test', rimraf.bind(null, 'tmp'));
+
+gulp.task('build:dist', ['clean:dist'], function() {
   return mergeStream(
     gulp.src(['src/*.js'])
-      .pipe($.es6Transpiler())
       .pipe($.wrapUmd({
         exports: funName,
         namespace: funName
@@ -45,23 +44,23 @@ gulp.task('transpile', ['clean'], function() {
       .pipe($.rename(bower.main))
       .pipe(gulp.dest('')),
     gulp.src(['src/*.js'])
-      .pipe($.es6Transpiler())
-      .pipe($.footer(nodeExports, {funName: funName}))
+      .pipe($.header(banner, {pkg: pkg}))
+      .pipe($.footer('\nmodule.exports = <%= funName %>;\n', {funName: funName}))
       .pipe($.rename(pkg.main))
-      .pipe(gulp.dest('')),
-    gulp.src(['test.js'])
-      .pipe($.es6Transpiler({
-        globals: {
-          describe: false,
-          it: false
-        }
-      }))
-      .pipe(gulp.dest('tmp'))
+      .pipe(gulp.dest(''))
   );
 });
 
-gulp.task('test', ['transpile'], function() {
-  gulp.src(['tmp/test.js'])
+gulp.task('build:test', ['clean:test'], function() {
+  return gulp.src(['test.js'])
+    .pipe($.esnext())
+    .pipe(gulp.dest('tmp'));
+});
+
+gulp.task('build', ['lint', 'build:dist', 'build:test']);
+
+gulp.task('test', ['build'], function() {
+  gulp.src(['tmp/test.js'], {read: false})
     .pipe($.mocha({reporter: 'spec'}));
 });
 
@@ -69,7 +68,5 @@ gulp.task('watch', function() {
   gulp.watch(['src/*.js'], ['test']);
   gulp.watch(['{,src/}*.js', '*.json'], ['lint']);
 });
-
-gulp.task('build', ['lint', 'test']);
 
 gulp.task('default', ['build', 'watch']);
