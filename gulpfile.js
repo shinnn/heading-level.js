@@ -59,13 +59,13 @@ gulp.task('build', ['lint', 'clean'], function() {
 
 gulp.task('test', ['build'], function() {
   gulp.src(['test.js'], {read: false})
-    .pipe($.mocha({reporter: 'spec'}));
+    .pipe($.mocha({reporter: mochaReporter}));
 });
 
 gulp.task('watch', function() {
   mochaReporter = 'dot';
-  gulp.watch(['src/*.js'], ['test']);
-  gulp.watch(['{,src/}*.js', '*.json', '.jshintrc'], ['lint']);
+  gulp.watch(['{,src/}*.js'], ['test']);
+  gulp.watch(['*.json', '.jshintrc'], ['lint']);
 });
 
-gulp.task('default', ['build', 'watch']);
+gulp.task('default', ['test', 'watch']);
