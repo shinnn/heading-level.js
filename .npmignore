@@ -6,6 +6,5 @@ gulpfile.js
 test.js
 dist/heading-level.js
 src/
-tmp/
 bower.json
 component.json

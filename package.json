@@ -41,7 +41,6 @@
   ],
   "devDependencies": {
     "gulp": "^3.8.6",
-    "gulp-esnext": "^0.3.0",
     "gulp-footer": "^1.0.5",
     "gulp-header": "^1.0.5",
     "gulp-jshint": "^1.7.1",

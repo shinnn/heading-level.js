@@ -30,9 +30,7 @@ gulp.task('lint', function() {
     .pipe($.jsonlint.reporter());
 });
 
-gulp.task('clean:dist', rimraf.bind(null, 'dist'));
-
-gulp.task('clean:test', rimraf.bind(null, 'tmp'));
+gulp.task('clean', rimraf.bind(null, 'dist'));
 
 gulp.task('build:dist', ['clean:dist'], function() {
   return mergeStream(
@@ -51,14 +49,6 @@ gulp.task('build:dist', ['clean:dist'], function() {
       .pipe(gulp.dest(''))
   );
 });
-
-gulp.task('build:test', ['clean:test'], function() {
-  return gulp.src(['test.js'])
-    .pipe($.esnext())
-    .pipe(gulp.dest('tmp'));
-});
-
-gulp.task('build', ['lint', 'build:dist', 'build:test']);
 
 gulp.task('test', ['build'], function() {
   gulp.src(['tmp/test.js'], {read: false})
