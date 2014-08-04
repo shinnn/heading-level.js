@@ -2,7 +2,8 @@
  * heading-level.js | MIT (c) Shinnosuke Watanabe
  * https://github.com/shinnn/heading-level.js
 */
-!function(global) {
+define(function(require,exports,module){
+
 'use strict';
 
 function headingLevel(tagName) {
@@ -20,5 +21,6 @@ function headingLevel(tagName) {
   return null;
 }
 
-global.headingLevel = headingLevel;
-}(this);
+return headingLevel;
+
+});

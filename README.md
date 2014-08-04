@@ -46,6 +46,10 @@ component install shinnn/heading-level.js
 
 [Download the script file directly.](https://raw.githubusercontent.com/shinnn/heading-level.js/master/dist/heading-level.js "view raw")
 
+### [AMD](https://github.com/amdjs/amdjs-api/blob/master/AMD.md) support
+
+This repository includes [the AMD-friendly build](https://raw.githubusercontent.com/shinnn/heading-level/master/dist/heading-level-amd.js) but the package managers doesn't include it. If you want to use it, download it directly.
+
 ## API
 
 ### headingLevel(tagName)

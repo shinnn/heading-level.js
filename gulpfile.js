@@ -13,6 +13,8 @@ var bower = require('./bower.json');
 
 var funName = toCamelCase(pkg.name);
 
+var mochaReporter = 'spec';
+
 var banner = [
   '/*!',
   ' * <%= pkg.name %>.js | MIT (c) Shinnosuke Watanabe',
@@ -32,32 +34,38 @@ gulp.task('lint', function() {
 
 gulp.task('clean', rimraf.bind(null, 'dist'));
 
-gulp.task('build:dist', ['clean:dist'], function() {
+gulp.task('build', ['lint', 'clean'], function() {
   return mergeStream(
     gulp.src(['src/*.js'])
-      .pipe($.wrapUmd({
-        exports: funName,
-        namespace: funName
+      .pipe($.header(banner + '!function(global) {\n', {pkg: pkg}))
+      .pipe($.footer('\nglobal.<%= funName %> = <%= funName %>;\n}(this);\n', {
+        funName: funName
       }))
-      .pipe($.header(banner, {pkg: pkg}))
       .pipe($.rename(bower.main))
       .pipe(gulp.dest('')),
     gulp.src(['src/*.js'])
       .pipe($.header(banner, {pkg: pkg}))
       .pipe($.footer('\nmodule.exports = <%= funName %>;\n', {funName: funName}))
       .pipe($.rename(pkg.main))
+      .pipe(gulp.dest('')),
+    gulp.src(['src/*.js'])
+      .pipe($.wrapAmd({exports: funName}))
+      .pipe($.header(banner, {pkg: pkg}))
+      .pipe($.rename(bower.main))
+      .pipe($.rename({suffix: '-amd'}))
       .pipe(gulp.dest(''))
   );
 });
 
 gulp.task('test', ['build'], function() {
-  gulp.src(['tmp/test.js'], {read: false})
+  gulp.src(['test.js'], {read: false})
     .pipe($.mocha({reporter: 'spec'}));
 });
 
 gulp.task('watch', function() {
+  mochaReporter = 'dot';
   gulp.watch(['src/*.js'], ['test']);
-  gulp.watch(['{,src/}*.js', '*.json'], ['lint']);
+  gulp.watch(['{,src/}*.js', '*.json', '.jshintrc'], ['lint']);
 });
 
 gulp.task('default', ['build', 'watch']);
