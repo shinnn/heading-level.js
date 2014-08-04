@@ -17,7 +17,7 @@
 
 function headingLevel(tagName) {
   if (typeof tagName !== 'string') {
-    throw new TypeError(tagName + 'is not a string.');
+    throw new TypeError(tagName + ' is not a string.');
   }
 
   if (/^h\d/mi.test(tagName)) {
