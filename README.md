@@ -36,7 +36,7 @@ npm i --save heading-level
 bower i --save heading-level
 ```
 
-#### [Component](http://component.io/)
+#### [Component](https://github.com/component/component)
 
 ```
 component install shinnn/heading-level.js
@@ -48,7 +48,7 @@ component install shinnn/heading-level.js
 
 ### [AMD](https://github.com/amdjs/amdjs-api/blob/master/AMD.md) support
 
-This repository includes [the AMD-friendly build](https://raw.githubusercontent.com/shinnn/heading-level/master/dist/heading-level-amd.js) but the package managers doesn't include it. If you want to use it, download it directly.
+This repository includes [the AMD-friendly build](https://raw.githubusercontent.com/shinnn/heading-level.js/master/dist/heading-level-amd.js) but the package managers doesn't include it. If you want to use it, download it directly.
 
 ## API
 
