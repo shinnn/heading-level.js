@@ -60,7 +60,10 @@ gulp.task('build', ['lint', 'clean'], function() {
 });
 
 gulp.task('test', ['build'], function(cb) {
-  var cmd = 'node test.js | node ./node_modules/.bin/tap-' + testReporter;
+  var cmd = 'node test.js';
+  if (!process.env.APPVEYOR) {
+    cmd += ' | node ./node_modules/.bin/tap-' + testReporter;
+  }
 
   exec(cmd, function(err, stdout, stderr) {
     console.log(stdout);
