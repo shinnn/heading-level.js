@@ -1,5 +1,7 @@
 'use strict';
 
+var exec = require('child_process').exec;
+
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var mergeStream = require('merge-stream');
@@ -13,7 +15,7 @@ var bower = require('./bower.json');
 
 var funName = toCamelCase(pkg.name);
 
-var mochaReporter = 'spec';
+var testReporter = 'spec';
 
 var banner = [
   '/*!',
@@ -57,13 +59,18 @@ gulp.task('build', ['lint', 'clean'], function() {
   );
 });
 
-gulp.task('test', ['build'], function() {
-  gulp.src(['test.js'], {read: false})
-    .pipe($.mocha({reporter: mochaReporter}));
+gulp.task('test', ['build'], function(cb) {
+  var cmd = 'node test.js | node_modules/.bin/tap-' + testReporter;
+
+  exec(cmd, function(err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+    cb(err);
+  });
 });
 
 gulp.task('watch', function() {
-  mochaReporter = 'dot';
+  testReporter = 'dot';
   gulp.watch(['{,src/}*.js'], ['test']);
   gulp.watch(['*.json', '.jshintrc'], ['lint']);
 });
