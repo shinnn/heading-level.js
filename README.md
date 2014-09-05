@@ -1,8 +1,8 @@
 # heading-level.js
 
-[![Bower version](https://badge.fury.io/bo/heading-level.svg)](http://badge.fury.io/bo/heading-level)
-[![NPM version](https://badge.fury.io/js/heading-level.svg)](http://badge.fury.io/js/heading-level)
 [![Build Status](https://travis-ci.org/shinnn/heading-level.js.svg?branch=master)](https://travis-ci.org/shinnn/heading-level.js)
+[![Build status](https://ci.appveyor.com/api/projects/status/e7jc75oos55psqvm)](https://ci.appveyor.com/project/ShinnosukeWatanabe/heading-level-js)
+[![Coverage Status](https://img.shields.io/coveralls/shinnn/heading-level.js.svg)](https://coveralls.io/r/shinnn/heading-level.js)
 [![devDependency Status](https://david-dm.org/shinnn/heading-level.js/dev-status.svg)](https://david-dm.org/shinnn/heading-level.js#info=devDependencies)
 
 Extract a valid heading level (1 - 6) from a tag name
@@ -24,22 +24,22 @@ headingLevel(elm.tagName); //=> 1
 
 ### Install with package manager
 
-#### [npm](https://www.npmjs.org/)
+#### [npm](https://www.npmjs.org/) [![NPM version](https://badge.fury.io/js/heading-level.svg)](https://www.npmjs.org/package/heading-level)
 
 ```
 npm i --save heading-level
 ```
 
-#### [Bower](http://bower.io/)
+#### [Bower](http://bower.io/) [![Bower version](https://badge.fury.io/bo/heading-level.svg)](https://github.com/shinnn/heading-level.js/releases)
 
 ```
 bower i --save heading-level
 ```
 
-#### [Component](https://github.com/component/component)
+#### [Duo](http://duojs.org/)
 
-```
-component install shinnn/heading-level.js
+```javascript
+var headingLevel = require('shinnn/heading-level.js');
 ```
 
 ### Standalone
@@ -83,4 +83,4 @@ headingLevel(bar.tagName); //=> null
 
 Copyright (c) 2014 [Shinnosuke Watanabe](https://github.com/shinnn)
 
-Licensed under [the MIT LIcense](./LICENSE).
+Licensed under [the MIT License](./LICENSE).
