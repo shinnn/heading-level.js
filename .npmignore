@@ -1,3 +1,4 @@
+*.yml
 .editorconfig
 .jscs.json
 .jshintrc
