@@ -2,23 +2,22 @@
  * heading-level.js | MIT (c) Shinnosuke Watanabe
  * https://github.com/shinnn/heading-level.js
 */
-!function(global) {
-'use strict';
+module.exports = function headingLevel(tagName) {
+  'use strict';
 
-function headingLevel(tagName) {
   if (typeof tagName !== 'string') {
-    throw new TypeError(tagName + ' is not a string.');
+    throw new TypeError(
+      String(tagName) +
+      ' is not a string. Expected a header tag name, e.g. "h1", "H2".'
+    );
   }
 
   if (/^h\d/mi.test(tagName)) {
-    var level = 1 * tagName.charAt(1);
+    var level = Number(tagName.charAt(1));
     if (1 <= level && level <= 6) {
       return level;
     }
   }
 
   return null;
-}
-
-global.headingLevel = headingLevel;
-}(this);
+};

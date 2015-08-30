@@ -1,7 +1,8 @@
 # heading-level.js
 
+[![NPM version](https://img.shields.io/npm/v/heading-level.svg)](https://www.npmjs.org/package/heading-level)
+[![Bower version](https://img.shields.io/bower/v/heading-level.svg)](https://github.com/shinnn/heading-level.js/releases)
 [![Build Status](https://travis-ci.org/shinnn/heading-level.js.svg?branch=master)](https://travis-ci.org/shinnn/heading-level.js)
-[![Build status](https://ci.appveyor.com/api/projects/status/e7jc75oos55psqvm)](https://ci.appveyor.com/project/ShinnosukeWatanabe/heading-level-js)
 [![Coverage Status](https://img.shields.io/coveralls/shinnn/heading-level.js.svg)](https://coveralls.io/r/shinnn/heading-level.js)
 [![devDependency Status](https://david-dm.org/shinnn/heading-level.js/dev-status.svg)](https://david-dm.org/shinnn/heading-level.js#info=devDependencies)
 
@@ -16,7 +17,7 @@ headingLevel('h7'); //=> null
 headingLevel('div'); //=> null
 
 // ... <h1 id='blog-title'></h1> ...
-var elm = document.getElementById('blog-title');
+const elm = document.getElementById('blog-title');
 headingLevel(elm.tagName); //=> 1
 ```
 
@@ -24,31 +25,21 @@ headingLevel(elm.tagName); //=> 1
 
 ### Install with package manager
 
-#### [npm](https://www.npmjs.org/) [![NPM version](https://badge.fury.io/js/heading-level.svg)](https://www.npmjs.org/package/heading-level)
+#### [npm](https://www.npmjs.com/)
 
 ```
-npm i --save heading-level
+npm install heading-level
 ```
 
-#### [Bower](http://bower.io/) [![Bower version](https://badge.fury.io/bo/heading-level.svg)](https://github.com/shinnn/heading-level.js/releases)
+#### [Bower](http://bower.io/) 
 
 ```
-bower i --save heading-level
-```
-
-#### [Duo](http://duojs.org/)
-
-```javascript
-var headingLevel = require('shinnn/heading-level.js');
+bower install heading-level
 ```
 
 ### Standalone
 
-[Download the script file directly.](https://raw.githubusercontent.com/shinnn/heading-level.js/master/dist/heading-level.js "view raw")
-
-### [AMD](https://github.com/amdjs/amdjs-api/blob/master/AMD.md) support
-
-This repository includes [the AMD-friendly build](https://raw.githubusercontent.com/shinnn/heading-level.js/master/dist/heading-level-amd.js) but the package managers doesn't include it. If you want to use it, download it directly.
+[Download the script file directly.](https://raw.githubusercontent.com/shinnn/heading-level.js/master/browser.js "view raw")
 
 ## API
 
@@ -56,15 +47,15 @@ This repository includes [the AMD-friendly build](https://raw.githubusercontent.
 
 Return: `Number` (1 - 6) or `null`
 
-It returns a `Number` of heading level, when the argument is a [heading tag name](http://www.w3.org/TR/html-markup/elements.html), such as `"h3"` and `"H4"`.
+It returns a `Number` of heading level, when the argument is a [heading tag name](https://www.w3.org/TR/html-markup/elements.html), such as `"h3"` and `"H4"`.
 
 It returns `null` when the argument is not a heading tag name.
 
 It throws an error when the argument is not a `String`.
 
 ```javascript
-var result = [];
-for(var i = 0; i <= 7; i++) {
+const result = [];
+for(let i = 0; i <= 7; i++) {
   result.push(headingLevel('h' + i));
 }
 
@@ -72,8 +63,8 @@ result; //=> [null, 1, 2, 3, 4, 5, 6, null]
 ```
 
 ```javascript
-var foo = document.createElement('h1');
-var bar = document.createElement('div');
+const foo = document.createElement('h1');
+const bar = document.createElement('div');
 
 headingLevel(foo.tagName); //=> 1
 headingLevel(bar.tagName); //=> null
