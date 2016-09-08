@@ -4,8 +4,8 @@
   "description": "Extract heading level (1 - 6) from a tag name",
   "scripts": {
     "pretest": "eslint --config @shinnn browser.js index.js test.js",
-    "test": "node --strong_mode --throw-deprecation --track-heap-objects test.js",
-    "coverage": "node --strong_mode node_modules/.bin/istanbul cover test.js"
+    "test": "node --throw-deprecation --track-heap-objects test.js",
+    "coverage": "istanbul cover test.js"
   },
   "author": "Shinnosuke Watanabe <snnskwtnb@gmail.com> (https://github.com/shinnn)",
   "repository": "shinnn/heading-level.js",
