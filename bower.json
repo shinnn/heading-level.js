@@ -11,7 +11,10 @@
     "head",
     "heading",
     "level",
-    "tag"
+    "degree",
+    "html",
+    "tag",
+    "tags"
   ],
   "main": "browser.js",
   "moduleType": "globals",
